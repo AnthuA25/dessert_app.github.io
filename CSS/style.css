@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+:root{
+    --pink:#854747;
+    --white:#FFFFFF;
+}
+header{
+    background-color: var(--pink);
+    height: 50px;
+    display: flex;
+}
+header .navbar a{
+    font-size: 1.3rem;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem ;
+    color:var(--white,white);
+    font-weight: bold;
+}
+.slides-img img{
+    background-size: cover;
+    /* background-repeat: no-repeat;
+    max-width: 100px; */
+    width: 100%;
+}
