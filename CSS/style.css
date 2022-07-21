@@ -22,9 +22,9 @@ header .navbar a{
     color:var(--white,white);
     font-weight: bold;
 }
-.slides-img img{
+img{
     background-size: cover;
-    /* background-repeat: no-repeat;
-    max-width: 100px; */
+    max-width: 100%;
     width: 100%;
+    height: auto;
 }

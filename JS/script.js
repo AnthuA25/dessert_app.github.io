@@ -1,19 +1,31 @@
 
-let nombreProductoA = "Pie de Limon";
-let precioProductoA = 45;
-let stockProductoA = 300;
+function Producto(nombre, precio, stock) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.stock = stock;
+};
 
-let nombreProductoB = "Selva Negra";
-let precioProductoB = 38;
-let stockProductoB = 400;
+const productoA = new Producto("Pie de Limon", 45, 300);
+const productoB = new Producto("Selva Negra", 38, 400);
+const productoC = new Producto("Cupcakes", 38, 100);
+const productoD = new Producto("Brownies", 25, 500)
 
-let nombreProductoC = "Cupcakes";
-let precioProductoC = 38;
-let stockProductoC = 100;
+let listaProductos = [
+    productoA,
+    productoB,
+    productoC,
+    productoD
+]
 
-let nombreProductoD = "Brownies";
-let precioProductoD = 25;
-let stockProductoD = 500;
+let nombresProductos = [];
+
+const listarProductos = () =>{
+    for(const producto of listaProductos){
+        nombresProductos.push(producto.nombre)
+    }
+}
+listarProductos();
+
 
 let cantidadAComprar = prompt("Ingrese cantidad de productos a comprar");
 let precioTotal = 0;
@@ -22,26 +34,26 @@ function calcularPrecio(cantidad, precio) {
     precioTotal += cantidad * precio;
 }
 
-function calcularStock(cantidad, stock, precio) {
-    if (stock >= cantidad) {
-        calcularPrecio(cantidad, precio)
-        alert("El precio total es de: S/." + (cantidad * precio))
+function calcularStock(cantidad, producto) {
+    if (producto.stock >= cantidad) {
+        calcularPrecio(cantidad, producto.precio)
+        alert("El precio total es de: S/." + (cantidad * producto.precio))
     } else {
-        alert("No contamos con stock disponible. Nuestro stock actual es de: " + stock + " unidades")
+        alert("No contamos con stock disponible. Nuestro stock actual es de: " + producto.stock + " unidades")
     }
 }
 
 for (let i = 0; i < cantidadAComprar; i++) {
-    var compraProducto = prompt("Ingrese nombre del producto:\n- Pie de Limon\n- Selva Negra\n- Cupcakes\n- Brownies");
+    var compraProducto = prompt("Ingrese nombre del producto:\n "  + nombresProductos.join("\n "));
     let cantidadProductos = prompt("Ingrese cantidad de productos a comprar");
-    if (compraProducto === 'Pie de Limon') {
-        calcularStock(cantidadProductos, stockProductoA, precioProductoA);
-    } else if (compraProducto === 'Selva Negra') {
-        calcularStock(cantidadProductos, stockProductoB, precioProductoB);
-    } else if (compraProducto === 'Cupcakes') {
-        calcularStock(cantidadProductos, stockProductoC, precioProductoC)
-    } else if (compraProducto ==='Brownies') {
-        calcularStock(cantidadProductos, stockProductoD, precioProductoD)
+    if (compraProducto === productoA.nombre) {
+        calcularStock(cantidadProductos, productoA);
+    } else if (compraProducto === productoB.nombre) {
+        calcularStock(cantidadProductos, productoB);
+    } else if (compraProducto === productoC.nombre) {
+        calcularStock(cantidadProductos, productoC)
+    } else if (compraProducto === productoD.nombre) {
+        calcularStock(cantidadProductos, productoD)
     } else {
         alert("No tenemos ese producto")
     }
