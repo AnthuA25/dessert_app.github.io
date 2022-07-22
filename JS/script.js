@@ -63,7 +63,7 @@ for (let i = 0; i < cantidadAComprar; i++) {
 }
 
 
-alert("Productos seleccionados :\n" + productoSeleccionado+ "\n"+ "Este es el precio total es de S/: "+ precioTotal);
+alert("Productos seleccionados :\n" + productoSeleccionado+ "\n"+ "Este es el precio total de S/: "+ precioTotal);
 
 
 
