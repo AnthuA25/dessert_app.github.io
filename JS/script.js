@@ -43,23 +43,40 @@ function calcularStock(cantidad, producto) {
     }
 }
 
+let productoSeleccionado = [];
+
 for (let i = 0; i < cantidadAComprar; i++) {
     var compraProducto = prompt("Ingrese nombre del producto:\n "  + nombresProductos.join("\n "));
     let cantidadProductos = prompt("Ingrese cantidad de productos a comprar");
-    if (compraProducto === productoA.nombre) {
+    productoSeleccionado.push(compraProducto);
+    if (compraProducto === productoA.nombre.toLowerCase()) {
         calcularStock(cantidadProductos, productoA);
-    } else if (compraProducto === productoB.nombre) {
+    } else if (compraProducto === productoB.nombre.toLowerCase()) {
         calcularStock(cantidadProductos, productoB);
-    } else if (compraProducto === productoC.nombre) {
+    } else if (compraProducto === productoC.nombre.toLowerCase()) {
         calcularStock(cantidadProductos, productoC)
-    } else if (compraProducto === productoD.nombre) {
+    } else if (compraProducto === productoD.nombre.toLowerCase()) {
         calcularStock(cantidadProductos, productoD)
     } else {
         alert("No tenemos ese producto")
     }
 }
 
-alert("Este es el precio total es de S/: " + precioTotal);
+
+alert("Productos seleccionados :\n" + productoSeleccionado+ "\n"+ "Este es el precio total es de S/: "+ precioTotal);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
