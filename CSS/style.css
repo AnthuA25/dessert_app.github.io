@@ -14,22 +14,37 @@ header{
     background-color: var(--pink);
     height: 50px;
     display: flex;
+    justify-content: space-between
 }
+header .navbar{
+    padding: 15px;
+}
+
 header .navbar a{
-    font-size: 1.3rem;
-    border-radius: .5rem;
+    /* font-size: 1.3rem; */
+    /* border-radius: .5rem; */
     padding:.5rem 1.5rem ;
     color:var(--white,white);
     font-weight: bold;
+}
+.icons{
+    padding: 10px;
+    display: flex;
+}
+.icons a{
+    padding:.5rem 1.5rem ;
+}
+.icons i{
+    color: white;
 }
 img{
     background-size: cover;
     max-width: 100%;
     width: 100%;
-    height: 580px;
+    height: 750px;
 }
-hr{
-    width: 100px;
+.line-pink{
+    width: 200px;
     height: 3px;
     background-color: #AC5D5D;
 }
@@ -37,6 +52,7 @@ hr{
     color:var(--pink);
     text-align: center;
     font-weight: bolder;
+    font-size: 40px;
 }
 .desserts{
     margin: 60px;
@@ -64,6 +80,7 @@ hr{
 .box-container{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .box-image img{
     width: 387px;
@@ -71,27 +88,183 @@ hr{
     border-radius: 20px;
 }
 
-/* about */
 
+/* about */
 .about{
     /* background:	rgba(133,71,71,0.2); */
     background-image: url("/image/strawberries.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
+    color:var(--white,white);
+    position: relative;
+    height: 600px;
+    overflow:hidden;
 }
-.about:before{
+.about::after{
     content: '';
     background:	rgb(133,71,71);
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     opacity: 0.5;
+    z-index: 0;
+}
+.about > *{
+    z-index: 10;
+    position: relative;
+}
+.about .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    width: auto;
+    height: 100%;
+}
+.about .row .information{
+    width: 50%;
+}
+.about .row .about-image{
+    width: 50%;
 }
 .about-image img{
     border-radius: 100%;
     width: 200px;
     height: 200px;
+}
+.information .about-description{
+    padding: 40px;
+    text-align: justify;
+}
+.title-about{
+    color:var(--white,white);
+    text-align: center;
+    font-weight: bolder;
+}
+.title-about h1{
+    font-size: 40px;
+}
+.line-about{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10px;
+
+}
+.line-about .fa-solid{
+    color: var(--white);
+}
+.line-about .line-white{
+    width: 200px;
+    height: 3px;
+    background-color: var(--white);
+}
+
+.about-image .tarta{
+    position: relative;
+    left: 200px;
+}
+.about-image .bocaditos{
+    position:relative;
+    top:150px;
+    left: 120px;
+}
+.about-image .torta{
+    position: relative;
+    top: 300px;
+    right: 200px
+}
+
+/* information extra */
+
+.information-extra{
+    margin: 60px;
+}
+.title-extra h1{
+    font-size: 40px;
+    text-align: center;
+    color:var(--pink);
+    font-weight: bolder;
+
+}
+
+.icons-information{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px;
+    gap: 10px;
+}
+.information-extra .icons-information .icon{
+    background-color: #B16E6E;
+    /* border-radius: 100%; */
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.icon img{
+    /* width: 150px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content: center; */
+    height: 7rem;
+}
+/* footer */
+
+
+footer{
+    margin-top: 100px;
+    background-color: #854747;
+    color: var(--white);
+    padding: 3rem 9rem;
+    /* padding: 20px; */
+    display: flex;
+    gap: 200px;
+    align-content: space-between;
+    text-align: center;
+}
+/* footer .footer-information{
+    width: 30%;
+    text-align: start;
+    line-height:50px;
+} */
+
+footer .col{
+    width: 30%;
+    text-align: start;
+    line-height:50px;
+}
+.col .col-title{
+    font-size: 30px;
+}
+.subscribe .email{
+    display: flex;
+    gap: 10px;
+}
+.subscribe input{
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    background-color: #C89696;
+}
+.subscribe .icon-email{
+    position: relative;
+    bottom: 10px;
+    right:35px;
+}
+
+footer .social{
+    width: 30%;
+    text-align: start;
+    line-height:50px;
+}
+
+.social .social-icons{
+    margin: 20px;
+    display: flex;
+    gap: 20px;
 }
