@@ -19,8 +19,8 @@ let listaProductos = [
 
 const buscarProducto = () => {
     let busqueda = prompt("Buscar Producto");
-    let busquedaProducto = listaProductos.find(elemento => elemento.nombre === busqueda)
-    console.log(busquedaProducto)
+    let busquedaProducto = listaProductos.find(elemento => elemento.nombre === busqueda);
+    console.log(busquedaProducto);
 }
 
 buscarProducto();
