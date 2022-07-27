@@ -82,6 +82,65 @@ img{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.desserts .box-container{
+    overflow: hidden;
+}
+.desserts .box-container .fa-heart{
+    margin: 10px;
+    position: absolute;
+    border-radius: 50%;
+    padding: 10px;
+    background:#C89696;
+    color:#854747;
+}
+.desserts .box-container .fa-heart:hover{
+    background: rgb(133,71,71);
+    color:#fff;
+}
+.box-container .details{
+    position: absolute;
+    box-sizing: border-box;
+    margin:-70px 0 0 0;
+    border-radius: 20px 0 20px 0;
+    width: 387px;
+    height: 70px;
+    padding:20px;
+    overflow: hidden;
+    background-color: rgb(133,71,71);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.box-container .details span,button{
+    visibility: hidden;
+    opacity: 0;
+}
+.box-container .details .span{
+    font-weight: bolder;
+}
+.box-container .details .button{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #C89696;
+    color: white;
+    font-weight: bolder;
+}
+.box-container:hover{
+    cursor: pointer;
+}
+.box-container .details:hover{
+    width: 387px;
+    height: 140px;
+    /* bottom: 180px; */
+    margin: -140px 0 0 0;
+    background-color: rgb(133,71,71);
+}
+.box-container:hover .details span,button{
+    opacity: 1;
+    visibility: visible;
+}
+
 .box-image img{
     width: 387px;
     height: 400px;
