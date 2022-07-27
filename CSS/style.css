@@ -14,7 +14,7 @@ header{
     background-color: var(--pink);
     height: 50px;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
 header .navbar{
     padding: 15px;
@@ -267,4 +267,83 @@ footer .social{
     margin: 20px;
     display: flex;
     gap: 20px;
+}
+
+/* TIENDA */
+.store{
+    display: flex;
+}
+
+.filtrado{
+    background-color: #854747;
+    width: 25%;
+    height: 50%;
+    margin: 20px;
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+}
+.catalogo{
+    width: 75%;
+    margin: 20px;
+}
+.container-product{
+    /* margin: 20px; */
+    display: flex;
+    align-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    /* width: 75% */
+}
+.container-product .box-product img{
+    width: 300px;
+    height: 350px;
+}
+.search input{
+    margin: 20px 0;
+    background-color: #C89696;
+    font-weight: bolder;
+    border-radius: 20px;
+    padding: .8em;
+    width:268px;
+    color: #854747;
+}
+.search a{
+    background-color: #B16E6E;
+    padding: 9px;
+    border-radius: 50%;
+}
+
+.filter-price .slider-box{
+    margin: 20px 0;
+}
+
+.category ul{
+    margin: 20px 0;
+    list-style: none;
+    background-color: #C89696;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 10px
+}
+.category ul li{
+    padding: 10px;
+    font-weight: bolder;
+}
+.page-number{
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+.page-number .number{
+   background-color: #854747;
+   border-radius: 50%;
+   padding: 15px;
+   color: white;
+   font-weight: bolder;
+}
+@media screen and(max-width:658px) {
+    
 }

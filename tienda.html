@@ -1,42 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-          <!-- <a><img src="/image/logo4.png" alt="Pasteleria Logo"/></a> -->
-          <a class="active" href="">Inicio</a>
-          <a href="">Nosotros</a>
-          <a href="tienda.html">Tienda</a>
-          <a href="">Contactanos</a>
-        </nav>
-        <div class="icons">
-          <!-- <i class="fas fa-bars"></i> -->
+      <nav class="navbar">
+        <!-- <a><img src="/image/logo4.png" alt="Pasteleria Logo"/></a> -->
+        <a href="home.html">Inicio</a>
+        <a href="">Nosotros</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="">Contactanos</a>
+      </nav>
+      <div class="icons">
+        <!-- <i class="fas fa-bars"></i> -->
+        <a href="#"><i class="fa-solid fa-heart"></i></a>
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </header>
+    <div class="title-container">
+      <h1 class="title">Tienda</h1>
+      <div class="line">
+        <i class="fa-solid fa-diamond"></i>
+        <hr class="line-pink" />
+        <i class="fa-solid fa-gem"></i>
+        <hr class="line-pink" />
+        <i class="fa-solid fa-diamond"></i>
+      </div>
+    </div>
+
+    <!-- Tienda -->
+    <div class="store">
+      <!-- Filtrado de productos -->
+      <section class="filtrado">
+        <!-- Busqueda de productos -->
+        <div class="search">
+          <h2>Buscar Producto</h2>
+          <input type="text" />
           <a><i class="fas fa-search"></i></a>
-          <a href="#"><i class="fa-solid fa-heart"></i></a>
-          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
-      </header>
-    <!-- Filtrado de productos -->
-    <section>
+        <div class="filter-price">
+          <h2>Filtrar por precio</h2>
+          <div class="slider-box">
+            <input type="range" min="0" max="250" value="25" id="input-left" />
+            <input type="range" min="0" max="250" value="75" id="input-right" />
+            <div class="slider">
+              <div class="track"></div>
+              <div class="range"></div>
+              <div class="thumb-left"></div>
+              <div class="thumb-right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="category">
+          <h2>Categorías del producto</h2>
+          <ul>
+            <li>Tortas Decorativas</li>
+            <li>Bocaditos</li>
+            <li>Kekes</li>
+          </ul>
+        </div>
+      </section>
 
-    </section>
+      <!-- catalogo de productos -->
+      <section class="catalogo">
+        <div class="container-product">
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+          <div class="box-product">
+            <img src="/image/biscocho.jpg" alt="" />
+          </div>
+        </div>
 
-    <!-- catalogo de productos -->
-    <section>
+        <!--paginado de productos-->
+        <div class="page-number">
+          <div class="number">1</div>
+          <div class="number">2</div>
+          <div class="number">3</div>
+          <div class="number">...</div>
+          <div class="number">8</div>
+        </div>
+      </section>
+    </div>
+     <!--pie de pagina  -->
+     <footer>
 
-    </section>
-
-    <!--paginado de productos-->
-</body>
+      <div class=" col footer-information">
+        <p>Tienda: Av.Miraflores 2356</p>
+        <p>2854512 / 995458745</p>
+        <p>Copyright ©2022 Pasteleria | Todos los derechos Reservados</p>
+      </div>
+      <div class="col subscribe">
+        <h4 class="col-title">Suscribete</h4>
+        <p>Recibe nuestras ultimas novedades</p>
+          <p>Correo Electrónico:</p>
+          <form>
+              <div class="email">
+                <input />
+                <div class="icon-email">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+              </div>
+          </form>
+      </div>
+      <div class="col social">
+        <h4 class="col-title">Síguenos</h4>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube"></i>
+          <i class="fab fa-linkedin"></i>
+        </div>
+      </div>
+  </footer>
+  </body>
 </html>
