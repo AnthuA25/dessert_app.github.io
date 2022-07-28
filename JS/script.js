@@ -17,25 +17,6 @@ let listaProductos = [
     productoD
 ]
 
-const buscarProducto = () => {
-    let busqueda = prompt("Buscar Producto");
-    let busquedaProducto = listaProductos.find(elemento => elemento.nombre === busqueda);
-    return busquedaProducto
-    // console.log(busquedaProducto);
-}
-
-console.log(buscarProducto());
-
-const filtrarPrecio = () => {
-    let filtrar = parseInt(prompt("Ingrese el precio a buscar"))
-
-    let busquedaPrecio = listaProductos.filter(elemento => elemento.precio === filtrar)
-    return busquedaPrecio
-    // console.log(busquedaPrecio)
-}
-
-console.log(filtrarPrecio())
-
 
 let nombresProductos = [];
 
@@ -45,10 +26,6 @@ const listarProductos = () => {
     }
 }
 listarProductos();
-
-
-
-
 
 let cantidadAComprar = prompt("Ingrese cantidad de productos a comprar");
 let precioTotal = 0;
@@ -72,13 +49,13 @@ for (let i = 0; i < cantidadAComprar; i++) {
     var compraProducto = prompt("Ingrese nombre del producto:\n " + nombresProductos.join("\n "));
     let cantidadProductos = prompt("Ingrese cantidad de productos a comprar");
     productoSeleccionado.push(compraProducto);
-    if (compraProducto === productoA.nombre.toLowerCase()) {
+    if (compraProducto === productoA.nombre) {
         calcularStock(cantidadProductos, productoA);
-    } else if (compraProducto === productoB.nombre.toLowerCase()) {
+    } else if (compraProducto === productoB.nombre) {
         calcularStock(cantidadProductos, productoB);
-    } else if (compraProducto === productoC.nombre.toLowerCase()) {
+    } else if (compraProducto === productoC.nombre) {
         calcularStock(cantidadProductos, productoC)
-    } else if (compraProducto === productoD.nombre.toLowerCase()) {
+    } else if (compraProducto === productoD.nombre) {
         calcularStock(cantidadProductos, productoD)
     } else {
         alert("No tenemos ese producto")
@@ -89,6 +66,24 @@ for (let i = 0; i < cantidadAComprar; i++) {
 alert(`Productos seleccionados :\n ${productoSeleccionado} \n  Este es el precio total de S/:  ${precioTotal}`);
 
 
+const buscarProducto = () => {
+    let busqueda = prompt("Buscar Producto");
+    let busquedaProducto = listaProductos.find(elemento => elemento.nombre === busqueda);
+    return busquedaProducto
+    // console.log(busquedaProducto);
+}
+
+console.log(buscarProducto());
+
+const filtrarPrecio = () => {
+    let filtrar = parseInt(prompt("Ingrese el precio a buscar"))
+
+    let busquedaPrecio = listaProductos.filter(elemento => elemento.precio === filtrar)
+    return busquedaPrecio
+    // console.log(busquedaPrecio)
+}
+
+console.log(filtrarPrecio())
 
 
 
