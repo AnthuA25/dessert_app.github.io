@@ -20,19 +20,21 @@ let listaProductos = [
 const buscarProducto = () => {
     let busqueda = prompt("Buscar Producto");
     let busquedaProducto = listaProductos.find(elemento => elemento.nombre === busqueda);
-    console.log(busquedaProducto);
+    return busquedaProducto
+    // console.log(busquedaProducto);
 }
 
-buscarProducto();
+console.log(buscarProducto());
 
 const filtrarPrecio = () => {
     let filtrar = parseInt(prompt("Ingrese el precio a buscar"))
 
     let busquedaPrecio = listaProductos.filter(elemento => elemento.precio === filtrar)
-    console.log(busquedaPrecio)
+    return busquedaPrecio
+    // console.log(busquedaPrecio)
 }
 
-filtrarPrecio()
+console.log(filtrarPrecio())
 
 
 let nombresProductos = [];
