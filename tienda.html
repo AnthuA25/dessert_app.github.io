@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tienda</title>
+    <title>tienda</title>
     <link rel="stylesheet" href="CSS/style.css" />
     <link
       rel="stylesheet"
@@ -14,16 +14,18 @@
   <body>
     <header>
       <nav class="navbar">
+        <ul class="link-menu">
+          <li><a href="/home.html">Inicio</a></li>
+          <li><a href="">Nosotros</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="">Contactanos</a></li>
+        </ul>
         <!-- <a><img src="/image/logo4.png" alt="Pasteleria Logo"/></a> -->
-        <a href="home.html">Inicio</a>
-        <a href="">Nosotros</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="">Contactanos</a>
       </nav>
       <div class="icons">
-        <!-- <i class="fas fa-bars"></i> -->
         <a href="#"><i class="fa-solid fa-heart"></i></a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="#"><i id='cart-shopping-icons' class="fa-solid fa-cart-shopping"></i></a>
+        <button class="ham" type="button"><i class="fas fa-bars"></i></button>
       </div>
     </header>
     <div class="title-container">
@@ -36,6 +38,58 @@
         <i class="fa-solid fa-diamond"></i>
       </div>
     </div>
+    <!-- Carrito de Compras -->
+    <div class="shopping-cart">
+      <div class="cart-order">
+        <div class="cart-image">
+          <img src="/image/biscocho.jpg"/>
+        </div>
+        <div class="cart-description">
+          <h3>Biscocho de Vainilla</h3>
+          <span class="quantity">Cantidad: 9</span>
+          <p>S/40.00</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="cart-order">
+        <div class="cart-image">
+          <img src="/image/biscocho.jpg"/>
+        </div>
+        <div class="cart-description">
+          <h3>Biscocho de Vainilla</h3>
+          <span class="quantity">Cantidad: 9</span>
+          <p>S/40.00</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="cart-order">
+        <div class="cart-image">
+          <img src="/image/biscocho.jpg"/>
+        </div>
+        <div class="cart-description">
+          <h3>Biscocho de Vainilla</h3>
+          <span class="quantity">Cantidad: 9</span>
+          <p>S/40.00</p>
+        </div>
+        <div>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="cart-pay">
+        <div class="subtotal">
+          <h3>SUBTOTAL:</h3>
+          <h3>S/. 120</h3>
+        </div>
+        <div class="button-cart">
+          <button class="buy-order">Comprar</button>
+
+        </div>
+      </div>
+    </div>
 
     <!-- Tienda -->
     <div class="store">
@@ -44,8 +98,8 @@
         <!-- Busqueda de productos -->
         <div class="search">
           <h2>Buscar Producto</h2>
-          <input type="text" />
-          <a><i class="fas fa-search"></i></a>
+          <input id="nombre-producto" type="text" />
+          <button><i class="fas fa-search"></i></button>
         </div>
         <div class="filter-price">
           <h2>Filtrar por precio</h2>
@@ -72,88 +126,8 @@
 
       <!-- catalogo de productos -->
       <section class="catalogo">
-        <div class="container-product">
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-            <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-             <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-             <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
-          <div class="box-product">
-            <a href="#" class="fas fa-heart"></a>
-            <img src="/image/biscocho.jpg" alt="" />
-             <div class="details">
-              <h3>Keke de Manzana</h3>
-              <span>S/.25</span><br/>
-              <button class="button">Agregar a Carrito</button>
-            </div>
-          </div>
+        <div id="store" class="container-product">
+          
         </div>
 
         <!--paginado de productos-->
@@ -197,5 +171,6 @@
         </div>
       </div>
   </footer>
+  <script src="/JS/script.js"></script>
   </body>
 </html>
