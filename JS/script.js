@@ -16,8 +16,8 @@ cart.addEventListener('click', () => {
 
 // ------------------------------------------
 // Estructura Objetos
-function Producto(id,nombre, precio, stock, imagen, categoria) {
-    this.id = id,
+function Producto(id, nombre, precio, stock, imagen, categoria) {
+    this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
@@ -25,16 +25,17 @@ function Producto(id,nombre, precio, stock, imagen, categoria) {
     this.categoria = categoria;
 };
 
-const productoA = new Producto(1,"Pie de Limon", 45, 300, "/image/biscocho.jpg", "Tarta");
-const productoB = new Producto(2,"Selva Negra", 38, 400, "/image/biscocho.jpg", "Keke");
-const productoC = new Producto(3,"Cupcakes", 38, 100, "/image/biscocho.jpg", "Bocaditos");
-const productoD = new Producto(4,"Alfajores", 25, 500, "/image/biscocho.jpg", "Bocaditos")
-const productoE = new Producto(5,"Pie de Manzana", 25, 500, "/image/biscocho.jpg", "Tarta")
-const productoF = new Producto(6,"Brownies", 25, 500, "/image/biscocho.jpg", "Bocaditos")
-const productoG = new Producto(7,"Torta la Sirenita", 25, 500, "/image/biscocho.jpg", "Tortas Decorativas")
-const productoH = new Producto(8,"Brownies", 25, 500, "/image/biscocho.jpg", "Tortas Decorativas")
-const productoI = new Producto(9,"Keke de Zanahoria", 25, 500, "/image/biscocho.jpg", "Keke")
-console.log(productoA)
+const productoA = new Producto(1, "Pie de Limon", 45, 300, "/image/biscocho.jpg", "Tarta");
+const productoB = new Producto(2, "Selva Negra", 38, 400, "/image/biscocho.jpg", "Kekes");
+const productoC = new Producto(3, "Cupcakes", 38, 100, "/image/biscocho.jpg", "Bocaditos");
+const productoD = new Producto(4, "Alfajores", 25, 500, "/image/biscocho.jpg", "Bocaditos")
+const productoE = new Producto(5, "Pie de Manzana", 25, 500, "/image/biscocho.jpg", "Tarta")
+const productoF = new Producto(6, "Brownies", 25, 500, "/image/biscocho.jpg", "Bocaditos")
+const productoG = new Producto(7, "Torta la Sirenita", 25, 500, "/image/biscocho.jpg", "Tortas-Decorativas")
+const productoH = new Producto(8, "Torta de Mickey Mouse", 25, 500, "/image/biscocho.jpg", "Tortas-Decorativas")
+const productoI = new Producto(9, "Keke de Zanahoria", 25, 500, "/image/biscocho.jpg", "Kekes")
+
+
 let listaProductos = [
     productoA,
     productoB,
@@ -47,125 +48,157 @@ let listaProductos = [
     productoI
 ]
 
+// -------------------------------
+// Variables
+
+let listaDeseos = [];
+let carrito = [];
+const CONTAINERCard = document.getElementById('store');
+const CONTAINERList = document.getElementById("add-lists")
+const DOMCarrito = document.querySelector(".shopping");
+const DOMTotal = document.querySelector("#total");
+
 
 // ------------------------------------------------
 // Catalogo de Productos
-for (const producto of listaProductos) {
-    if (producto.stock != 0) {
+function renderizarProductos(products) {
+    CONTAINERCard.innerText = " ";
+    products.forEach((producto) => {
+        if (producto.stock != 0) {
+            const card = document.createElement("div");
+            card.classList.add('box-product');
+            card.innerHTML = `<button id="butttonList" class="fas fa-heart"></button>
+            <img src=${producto.imagen} alt="" />`;
 
-        let container = document.getElementById('store')
-        let card = document.createElement('div');
-        card.className = 'box-product';
-        card.innerHTML = `<a href="#" class="fas fa-heart"></a>
-        <img src=${producto.imagen} alt="" />`
-        let detail = document.createElement('div')
-        detail.className = 'details'
-        detail.innerHTML = ` <h3>${producto.nombre}</h3>
-        <span>S/.${producto.precio}</span><br/>`
-        let addToCart = document.createElement('button')
-        addToCart.innerText = 'Agregar a Carrito'
-        addToCart.className = 'button-store'
-        card.appendChild(detail);
-        container.appendChild(card)
-        detail.appendChild(addToCart)
-    }
+            const detail = document.createElement("div");
+            detail.classList.add('details');
+
+            const title = document.createElement("h3");
+            title.innerText = producto.nombre;
+
+            const precio = document.createElement("span")
+            precio.innerText = `S/.${producto.precio}`;
+
+            const miBoton = document.createElement("button");
+            miBoton.classList.add("button-store");
+            miBoton.innerText = `Agregar a Carrito`;
+            miBoton.setAttribute("marcador", producto.id);
+            miBoton.addEventListener("click", anadirProductoAlCarrito);
+
+            card.append(detail);
+            detail.append(title);
+            detail.append(precio);
+            detail.append(miBoton);
+            CONTAINERCard.append(card);
+        }
+    })
+
+
+}
+
+renderizarProductos(listaProductos)
+
+// ---------------------------------------------
+// Agregar productos al Carrito
+function anadirProductoAlCarrito(e) {
+    carrito.push(e.target.getAttribute('marcador'));
+    renderizarCarrito();
+    guardarCarritoEnLocalStorage();
+}
+
+function renderizarCarrito() {
+    DOMCarrito.innerText = '';
+    const carritoSinDuplicados = [...new Set(carrito)];
+    carritoSinDuplicados.forEach((item) => {
+        const miItem = listaProductos.filter((productoBaseDatos) => {
+            return productoBaseDatos.id === parseInt(item);
+        });
+
+        const numeroUnidades = carrito.reduce((total, itemId) => {
+            return itemId === item ? total += 1 : total;
+        }, 0);
+        const cartOrder = document.createElement("div");
+        cartOrder.classList.add('cart-order');
+
+        const cartImage = document.createElement("div");
+        cartImage.classList.add("cart-image")
+        cartImage.innerHTML = `<img src=${miItem[0].imagen} alt="productos"/>`
+
+        const cartDescription = document.createElement("div");
+        cartDescription.classList.add("cart-description");
+        cartDescription.innerHTML = `<h3>${miItem[0].nombre}</h3>
+                                        <span class="quantity">Cantidad: ${numeroUnidades}</span>
+                                        <p>S/.${miItem[0].precio}</p>`
+
+        const cartButton = document.createElement("div");
+        const botonEliminar = document.createElement("button");
+        botonEliminar.innerText = 'X';
+        botonEliminar.dataset.item = item;
+        botonEliminar.addEventListener("click", borrarProductoCarrito);
+
+        cartOrder.append(cartImage);
+        cartOrder.append(cartDescription);
+        cartOrder.append(cartButton);
+        cartButton.append(botonEliminar)
+        DOMCarrito.appendChild(cartOrder)
+    });
+    DOMTotal.innerText = calcularTotal();
+
+}
+
+function borrarProductoCarrito(e) {
+    const id = e.target.dataset.item;
+
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== id;
+    });
+    renderizarCarrito();
+    guardarCarritoEnLocalStorage();
+}
+
+function calcularTotal() {
+    return carrito.reduce((total, item) => {
+        const miItem = listaProductos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        return total + miItem[0].precio;
+    }, 0).toFixed(2);
+}
+
+function guardarCarritoEnLocalStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+
+
+
+
+// ---------------------------------------------
+// Busqueda de Productos
+
+let productoBuscar = document.getElementById('nombre-producto');
+productoBuscar.addEventListener("input", inputProducto);
+
+function inputProducto(e) {
+    productoBuscar.value = e.target.value;
+}
+
+
+let botonBuscar = document.getElementById("buscar");
+botonBuscar.addEventListener("click", buscarProducto);
+
+function buscarProducto(e) {
+    e.preventDefault();
+    let productosEncontrados = [];
+    let busquedaProducto = listaProductos.find(producto => producto.nombre === productoBuscar.value);
+    productosEncontrados.push(busquedaProducto);
+    renderizarProductos(productosEncontrados);
+    console.log(busquedaProducto);
 }
 
 
 // ---------------------------------------------
-// Agregar productos al Carrito
-let carrito = [];
-
-// Filtrar por  Categorias
-// let tortas = document.getElementById('tortas')
-// tortas.addEventListener("click", filtrarCategoria)
-
-// function filtrarCategoria() {
-//     let listaA = listaProductos.filter((producto) => producto.categoria === "Tortas Decorativas")
-//     // console.log(listaA)
-
-//     // listaA.innerHTML = ""
-//     for (const producto of listaA) {
-//         if (producto.stock != 0) {
-//             let container = document.getElementById('store')
-//             let card = document.createElement('div');
-//             let detail = document.createElement('div')
-//             let addToCart = document.createElement('button')
-//             card.className = 'box-product';
-//             container.appendChild(card)
-//             card.innerHTML = `<a href="#" class="fas fa-heart"></a>
-//             <img src=${producto.imagen} alt="" />`
-//             card.appendChild(detail);
-//             detail.className = 'details'
-//             detail.innerHTML = ` <h3>${producto.nombre}</h3>
-//             <span>S/.${producto.precio}</span><br/>`
-//             addToCart.innerText = 'Agregar a Carrito'
-//             addToCart.className = 'button-store'
-//             detail.appendChild(addToCart)
-//         }
-//     }
-// }
-
-
-
-
-// let nombresProductos = [];
-
-// const listarProductos = () => {
-//     for (const producto of listaProductos) {
-//         nombresProductos.push(producto.nombre)
-//     }
-// }
-// listarProductos();
-
-// let cantidadAComprar = prompt("Ingrese cantidad de productos a comprar");
-//let precioTotal = 0;
-
-// function calcularPrecio(cantidad, precio) {
-//     precioTotal += cantidad * precio;
-// }
-
-// function calcularStock(cantidad, producto) {
-//     if (producto.stock >= cantidad) {
-//         calcularPrecio(cantidad, producto.precio)
-//         alert("El precio total es de: S/." + (cantidad * producto.precio))
-//     } else {
-//         alert("No contamos con stock disponible. Nuestro stock actual es de: " + producto.stock + " unidades")
-//     }
-// }
-
-// let productoSeleccionado = [];
-
-// for (let i = 0; i < cantidadAComprar; i++) {
-//     // var compraProducto = prompt("Ingrese nombre del producto:\n " + nombresProductos.join("\n "));
-//     // let cantidadProductos = prompt("Ingrese cantidad de productos a comprar");
-//     productoSeleccionado.push(compraProducto);
-//     if (compraProducto === productoA.nombre) {
-//         calcularStock(cantidadProductos, productoA);
-//     } else if (compraProducto === productoB.nombre) {
-//         calcularStock(cantidadProductos, productoB);
-//     } else if (compraProducto === productoC.nombre) {
-//         calcularStock(cantidadProductos, productoC)
-//     } else if (compraProducto === productoD.nombre) {
-//         calcularStock(cantidadProductos, productoD)
-//     } else {
-//         alert("No tenemos ese producto")
-//     }
-// }
-
-
-// alert(`Productos seleccionados :\n ${productoSeleccionado} \n  Este es el precio total de S/:  ${precioTotal}`);                       
-
-// Busqueda de Productos
-let productoBuscar = document.getElementById('form-search');
-let iconoBuscador = document.getElementById('buscar')
-const buscarProducto = (e) => {
-    let busquedaProducto = listaProductos.find(producto => producto.nombre === productoBuscar);
-    // console.log(productoBuscar)
-}
-
-
-
+// Filtrado por Precio
 
 const filtrarPrecio = () => {
     // let filtrar = parseInt(prompt("Ingrese el precio a buscar"))
@@ -178,8 +211,20 @@ const filtrarPrecio = () => {
 
 
 
+// ---------------------------------------------
+// Filtrar por  Categorias
+const categorias = Array.from(document.getElementById('categories-lists').children);
 
+categorias.forEach((categoria) => {
+    categoria.addEventListener("click", filtrarCategoria)
+});
 
+function filtrarCategoria(e) {
+    e.preventDefault();
+    let option = e.target.id;
+    let filtroCategoria = listaProductos.filter(producto => producto.categoria === option);
+    renderizarProductos(filtroCategoria);
+}
 
 
 

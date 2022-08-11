@@ -509,21 +509,27 @@ button {
   position: absolute;
   top: 80px;
   right: 30px;
-  /* bottom: 150px;
-    left:1090px; */
   background-color: #ac5d5d;
   padding: 20px;
-  max-width: 350px;
+  max-width: 350%;
   color: white;
   z-index: 1;
 }
 
 .cart-order {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  gap: 20px;
 }
+
+
 .cart-description {
   line-height: 20px;
+  text-align: start;
+  width: 117px;
 }
 .quantity {
   color: rgb(218, 191, 191);
