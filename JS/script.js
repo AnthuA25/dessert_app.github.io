@@ -1,3 +1,7 @@
+// importaciones
+// import Swal from 'sweetalert2';
+
+
 
 // const ham = document.querySelector('.ham');
 // const enlaces = document.querySelector('.link-menu');
@@ -104,9 +108,11 @@ function anadirProductoAlCarrito(e) {
     carrito.push(e.target.getAttribute('marcador'));
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
+
 }
 
 function renderizarCarrito() {
+
     DOMCarrito.innerText = '';
     const carritoSinDuplicados = [...new Set(carrito)];
     carritoSinDuplicados.forEach((item) => {
@@ -127,8 +133,8 @@ function renderizarCarrito() {
         const cartDescription = document.createElement("div");
         cartDescription.classList.add("cart-description");
         cartDescription.innerHTML = `<h3>${miItem[0].nombre}</h3>
-                                        <span class="quantity">Cantidad: ${numeroUnidades}</span>
-                                        <p>S/.${miItem[0].precio}</p>`
+                                                    <span class="quantity">Cantidad: ${numeroUnidades}</span>
+                                                    <p>S/.${miItem[0].precio}</p>`
 
         const cartButton = document.createElement("div");
         const botonEliminar = document.createElement("button");
@@ -145,6 +151,7 @@ function renderizarCarrito() {
     DOMTotal.innerText = calcularTotal();
 
 }
+
 
 function borrarProductoCarrito(e) {
     const id = e.target.dataset.item;
