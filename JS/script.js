@@ -193,7 +193,6 @@ function buscarProducto(e) {
     let busquedaProducto = listaProductos.find(producto => producto.nombre === productoBuscar.value);
     productosEncontrados.push(busquedaProducto);
     renderizarProductos(productosEncontrados);
-    console.log(busquedaProducto);
 }
 
 
