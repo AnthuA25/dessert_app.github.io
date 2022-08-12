@@ -522,7 +522,7 @@ button {
 .shopping::-webkit-scrollbar{
   /* display: none; */
   width:10px;
-  background: #a7a9b1f4;
+  background:none;
   border:none;
   border-radius: 20px;
 

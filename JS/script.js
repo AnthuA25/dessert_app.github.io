@@ -72,7 +72,7 @@ function renderizarProductos(products) {
             const card = document.createElement("div");
             card.classList.add('box-product');
             card.innerHTML = `<button id="butttonList" class="fas fa-heart"></button>
-            <img src=${producto.imagen} alt="" />`;
+                <img src=${producto.imagen} alt="" />`;
 
             const detail = document.createElement("div");
             detail.classList.add('details');
@@ -96,6 +96,7 @@ function renderizarProductos(products) {
             CONTAINERCard.append(card);
         }
     })
+
 
 
 }
