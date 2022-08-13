@@ -29,15 +29,15 @@ function Producto(id, nombre, precio, stock, imagen, categoria) {
     this.categoria = categoria;
 };
 
-const productoA = new Producto(1, "Pie de Limon", 45, 300, "./images/biscocho.jpg", "Tarta");
-const productoB = new Producto(2, "Selva Negra", 38, 400, "./images/biscocho.jpg", "Kekes");
-const productoC = new Producto(3, "Cupcakes", 38, 100, "./images/biscocho.jpg", "Bocaditos");
-const productoD = new Producto(4, "Alfajores", 25, 500, "./images/biscocho.jpg", "Bocaditos")
-const productoE = new Producto(5, "Pie de Manzana", 25, 500, "./images/biscocho.jpg", "Tarta")
-const productoF = new Producto(6, "Brownies", 25, 500, "./images/biscocho.jpg", "Bocaditos")
-const productoG = new Producto(7, "Torta la Sirenita", 25, 500, "./images/biscocho.jpg", "Tortas-Decorativas")
-const productoH = new Producto(8, "Torta de Mickey Mouse", 25, 500, "./images/biscocho.jpg", "Tortas-Decorativas")
-const productoI = new Producto(9, "Keke de Zanahoria", 25, 500, "./images/biscocho.jpg", "Kekes")
+const productoA = new Producto(1, "Pie de Limon", 45, 300, "../images/biscocho.jpg", "Tarta");
+const productoB = new Producto(2, "Selva Negra", 38, 400, "../images/biscocho.jpg", "Kekes");
+const productoC = new Producto(3, "Cupcakes", 38, 100, "../images/biscocho.jpg", "Bocaditos");
+const productoD = new Producto(4, "Alfajores", 25, 500, "../images/biscocho.jpg", "Bocaditos")
+const productoE = new Producto(5, "Pie de Manzana", 25, 500, "../images/biscocho.jpg", "Tarta")
+const productoF = new Producto(6, "Brownies", 25, 500, "../images/biscocho.jpg", "Bocaditos")
+const productoG = new Producto(7, "Torta la Sirenita", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
+const productoH = new Producto(8, "Torta de Mickey Mouse", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
+const productoI = new Producto(9, "Keke de Zanahoria", 25, 500, "../images/biscocho.jpg", "Kekes")
 
 
 let listaProductos = [
