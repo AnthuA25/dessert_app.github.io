@@ -503,6 +503,8 @@ button {
 }
 /* top: 80px;
     right: 40px; */
+
+
 /* Tienda- Carrito de Compras */
 .shopping-cart {
   display: none;
@@ -568,6 +570,10 @@ button {
 .button-cart {
   display: flex;
   justify-content: center;
+}
+.button-cart a{
+  color: white;
+  font-weight: 700;
 }
 .cart-pay .buy-order {
   background-color: #c89696;

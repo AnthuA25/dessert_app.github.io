@@ -106,6 +106,13 @@ renderizarProductos(listaProductos)
 // ---------------------------------------------
 // Agregar productos al Carrito
 function anadirProductoAlCarrito(e) {
+    Swal.fire({
+        title: 'Producto agregado al carrito',
+        icon: 'success',
+        confirmButtonText: 'salir',
+        background:'#854747',
+        color:'white',
+    })
     carrito.push(e.target.getAttribute('marcador'));
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
@@ -232,10 +239,6 @@ function filtrarCategoria(e) {
     let filtroCategoria = listaProductos.filter(producto => producto.categoria === option);
     renderizarProductos(filtroCategoria);
 }
-
-
-
-
 
 
 
