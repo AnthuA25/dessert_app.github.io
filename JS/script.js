@@ -3,7 +3,7 @@
 
 
 
-// const ham = document.querySelector('.ham');
+// const ham = document.getElementById('.ham');
 // const enlaces = document.querySelector('.link-menu');
 
 // ham.addEventListener('click', () => {
@@ -58,21 +58,33 @@ let listaProductos = [
 let listaDeseos = [];
 let carrito = [];
 const CONTAINERCard = document.getElementById('store');
-const CONTAINERList = document.getElementById("add-lists")
+const CONTAINERList = document.getElementById("add-lists");
+// const ADDProductosList = document.getElementById('list-products-icons')
 const DOMCarrito = document.querySelector(".shopping");
 const DOMTotal = document.querySelector("#total");
+// console.log(ADDProductosList);
+
 
 
 // ------------------------------------------------
 // Catalogo de Productos
 function renderizarProductos(products) {
-    CONTAINERCard.innerText = " ";
+    CONTAINERCard.innerText = "";
     products.forEach((producto) => {
         if (producto.stock != 0) {
             const card = document.createElement("div");
             card.classList.add('box-product');
-            card.innerHTML = `<button id="butttonList" class="fas fa-heart"></button>
+            card.innerHTML = `
                 <img src=${producto.imagen} alt="" />`;
+            // <button id="butttonList" class="fas fa-heart"></button>
+
+            const listHeart = document.createElement("button");
+            // listHeart.innerHTML=`<i class="fas fa-heart"></i>`
+            listHeart.classList.add("fas");
+            listHeart.classList.add("fa-heart");
+            listHeart.setAttribute("listId", producto.id)
+            // listHeart.addEventListener("click", anadirProductoLista);
+
 
             const detail = document.createElement("div");
             detail.classList.add('details');
@@ -89,6 +101,7 @@ function renderizarProductos(products) {
             miBoton.setAttribute("marcador", producto.id);
             miBoton.addEventListener("click", anadirProductoAlCarrito);
 
+            card.append(listHeart);
             card.append(detail);
             detail.append(title);
             detail.append(precio);
@@ -106,13 +119,13 @@ renderizarProductos(listaProductos)
 // ---------------------------------------------
 // Agregar productos al Carrito
 function anadirProductoAlCarrito(e) {
-    Swal.fire({
-        title: 'Producto agregado al carrito',
-        icon: 'success',
-        confirmButtonText: 'salir',
-        background:'#854747',
-        color:'white',
-    })
+    // Swal.fire({
+    //     title: 'Producto agregado al carrito',
+    //     icon: 'success',
+    //     confirmButtonText: 'Cerrar',
+    //     background: '#854747',
+    //     color: 'white',
+    // })
     carrito.push(e.target.getAttribute('marcador'));
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
@@ -185,6 +198,8 @@ function guardarCarritoEnLocalStorage() {
 }
 
 
+// --------------------------------------------
+// Agregando producto a lista de deseos
 
 
 

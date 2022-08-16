@@ -175,7 +175,7 @@ button {
 /* about */
 .about {
   /* background:	rgba(133,71,71,0.2); */
-  background-image: url("/image/strawberries.jpg");
+  background-image: url("../images/strawberries.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--white, white);
@@ -380,7 +380,9 @@ footer .social {
 }
 
 .container-product .box-product .fa-heart {
-  margin: 10px;
+  margin-left: -290px;
+  margin-top: 10px;
+  /* 10 */
   position: absolute;
   border-radius: 50%;
   padding: 10px;
@@ -480,7 +482,7 @@ button {
   overflow: hidden;
   padding: 10px;
 }
-.category ul a{
+.category ul a {
   color: white;
 }
 .category ul li {
@@ -504,7 +506,6 @@ button {
 /* top: 80px;
     right: 40px; */
 
-
 /* Tienda- Carrito de Compras */
 .shopping-cart {
   display: none;
@@ -517,20 +518,18 @@ button {
   color: white;
   z-index: 1;
 }
-.shopping{
+.shopping {
   max-height: 200px;
   overflow-y: scroll;
 }
-.shopping::-webkit-scrollbar{
+.shopping::-webkit-scrollbar {
   /* display: none; */
-  width:10px;
-  background:none;
-  border:none;
+  width: 10px;
+  background: none;
+  border: none;
   border-radius: 20px;
-
-
 }
-.shopping::-webkit-scrollbar-thumb{
+.shopping::-webkit-scrollbar-thumb {
   background: #854747;
   border-radius: 20px;
 }
@@ -543,7 +542,6 @@ button {
   justify-content: space-around;
   gap: 20px;
 }
-
 
 .cart-description {
   line-height: 20px;
@@ -571,7 +569,7 @@ button {
   display: flex;
   justify-content: center;
 }
-.button-cart a{
+.button-cart a {
   color: white;
   font-weight: 700;
 }
@@ -602,38 +600,40 @@ button {
 } */
 
 @media (max-width: 768px) {
-  /* body{
-        overflow: hidden;
-    }
-    
-    .navbar .ham{
-        display: block;
-        position: absolute;
-        top: 19px;
-        left: 25px;
-    }
-    .navbar{
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 50px 0;
-    }
-    .link-menu{
-        display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 92vh;
-        margin: 0;
-        padding:0;
-    }
-    .link-menu li{
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-    } */
-  /* .link-menu.activado{
-        display: flex;
-    } */
+  /* body {
+    overflow: hidden;
+  }
+
+  .navbar .ham {
+    display: block;
+    position: absolute;
+    top: 19px;
+    left: 25px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 0;
+  }
+  .link-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 92vh;
+    margin: 0;
+    padding: 0;
+  }
+  .link-menu li {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  .link-menu .activado {
+    display: flex;
+  } */
+
+  /* tienda */
   .store {
     flex-direction: column;
     justify-content: center;
