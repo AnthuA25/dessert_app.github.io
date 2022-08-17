@@ -119,13 +119,13 @@ renderizarProductos(listaProductos)
 // ---------------------------------------------
 // Agregar productos al Carrito
 function anadirProductoAlCarrito(e) {
-    // Swal.fire({
-    //     title: 'Producto agregado al carrito',
-    //     icon: 'success',
-    //     confirmButtonText: 'Cerrar',
-    //     background: '#854747',
-    //     color: 'white',
-    // })
+    Swal.fire({
+        title: 'Producto agregado al carrito',
+        icon: 'success',
+        confirmButtonText: 'Cerrar',
+        background: '#854747',
+        color: 'white',
+    })
     carrito.push(e.target.getAttribute('marcador'));
     renderizarCarrito();
     guardarCarritoEnLocalStorage();
