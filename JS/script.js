@@ -133,7 +133,6 @@ function anadirProductoAlCarrito(e) {
 }
 
 function renderizarCarrito() {
-
     DOMCarrito.innerText = '';
     const carritoSinDuplicados = [...new Set(carrito)];
     carritoSinDuplicados.forEach((item) => {
@@ -170,7 +169,6 @@ function renderizarCarrito() {
         DOMCarrito.appendChild(cartOrder)
     });
     DOMTotal.innerText = calcularTotal();
-
 }
 
 
@@ -221,6 +219,7 @@ function buscarProducto(e) {
     e.preventDefault();
     let productosEncontrados = [];
     let busquedaProducto = listaProductos.find(producto => producto.nombre === productoBuscar.value);
+   
     productosEncontrados.push(busquedaProducto);
     renderizarProductos(productosEncontrados);
 }
