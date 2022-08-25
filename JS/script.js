@@ -1,6 +1,3 @@
-// importaciones
-// import Swal from 'sweetalert2';
-
 
 
 // const ham = document.getElementById('.ham');
@@ -11,60 +8,78 @@
 // })
 
 const cart = document.getElementById('cart-shopping-icons');
-const order = document.querySelector('.shopping-cart')
+const order = document.querySelector('.shopping-cart');
+const NoProductos = document.getElementById('NOProductos');
 
 cart.addEventListener('click', () => {
     order.classList.toggle('activado')
 })
 
 
+
+
 // ------------------------------------------
 // Estructura Objetos
-function Producto(id, nombre, precio, stock, imagen, categoria) {
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
-    this.imagen = imagen;
-    this.categoria = categoria;
-};
+// function Producto(id, nombre, precio, stock, imagen, categoria) {
+//     this.id = id;
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.stock = stock;
+//     this.imagen = imagen;
+//     this.categoria = categoria;
+// };
 
-const productoA = new Producto(1, "Pie de Limon", 45, 300, "../images/biscocho.jpg", "Tarta");
-const productoB = new Producto(2, "Selva Negra", 38, 400, "../images/biscocho.jpg", "Kekes");
-const productoC = new Producto(3, "Cupcakes", 38, 100, "../images/biscocho.jpg", "Bocaditos");
-const productoD = new Producto(4, "Alfajores", 25, 500, "../images/biscocho.jpg", "Bocaditos")
-const productoE = new Producto(5, "Pie de Manzana", 25, 500, "../images/biscocho.jpg", "Tarta")
-const productoF = new Producto(6, "Brownies", 25, 500, "../images/biscocho.jpg", "Bocaditos")
-const productoG = new Producto(7, "Torta la Sirenita", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
-const productoH = new Producto(8, "Torta de Mickey Mouse", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
-const productoI = new Producto(9, "Keke de Zanahoria", 25, 500, "../images/biscocho.jpg", "Kekes")
+// const productoA = new Producto(1, "Pie de Limon", 45, 300, "../images/biscocho.jpg", "Tarta");
+// const productoB = new Producto(2, "Selva Negra", 38, 400, "../images/biscocho.jpg", "Kekes");
+// const productoC = new Producto(3, "Cupcakes", 38, 100, "../images/biscocho.jpg", "Bocaditos");
+// const productoD = new Producto(4, "Alfajores", 25, 500, "../images/biscocho.jpg", "Bocaditos")
+// const productoE = new Producto(5, "Pie de Manzana", 25, 500, "../images/biscocho.jpg", "Tarta")
+// const productoF = new Producto(6, "Brownies", 25, 500, "../images/biscocho.jpg", "Bocaditos")
+// const productoG = new Producto(7, "Torta la Sirenita", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
+// const productoH = new Producto(8, "Torta de Mickey Mouse", 25, 500, "../images/biscocho.jpg", "Tortas-Decorativas")
+// const productoI = new Producto(9, "Keke de Zanahoria", 25, 500, "../images/biscocho.jpg", "Kekes")
 
 
-let listaProductos = [
-    productoA,
-    productoB,
-    productoC,
-    productoD,
-    productoE,
-    productoF,
-    productoG,
-    productoH,
-    productoI
-]
+// let listaProductos = [
+//     productoA,
+//     productoB,
+//     productoC,
+//     productoD,
+//     productoE,
+//     productoF,
+//     productoG,
+//     productoH,
+//     productoI
+// ]
 
 // -------------------------------
 // Variables
 
+let dataProductos = "";
+// let listaProductos = []
 let listaDeseos = [];
 let carrito = [];
 const CONTAINERCard = document.getElementById('store');
 const CONTAINERList = document.getElementById("add-lists");
-// const ADDProductosList = document.getElementById('list-products-icons')
 const DOMCarrito = document.querySelector(".shopping");
 const DOMTotal = document.querySelector("#total");
-// console.log(ADDProductosList);
 
 
+// if(carrito.length === 0){
+//     NoProductos.classList.remove('noactivado');
+
+//     // NoProductos.classList.toggle('activadop')
+// }else{
+//     // NoProductos.classList.remove('noactivado')
+//     NoProductos.classList.add('noactivado')
+// }
+
+fetch("../data/productos.json")
+    .then((response) => response.json())
+    .then((data) => {
+        dataProductos = data;
+        return renderizarProductos(dataProductos);
+    })
 
 // ------------------------------------------------
 // Catalogo de Productos
@@ -83,7 +98,7 @@ function renderizarProductos(products) {
             listHeart.classList.add("fas");
             listHeart.classList.add("fa-heart");
             listHeart.setAttribute("listId", producto.id)
-            // listHeart.addEventListener("click", anadirProductoLista);
+            listHeart.addEventListener("click", anadirProductoLista);
 
 
             const detail = document.createElement("div");
@@ -113,9 +128,6 @@ function renderizarProductos(products) {
 
 
 }
-
-renderizarProductos(listaProductos)
-
 // ---------------------------------------------
 // Agregar productos al Carrito
 function anadirProductoAlCarrito(e) {
@@ -136,10 +148,9 @@ function renderizarCarrito() {
     DOMCarrito.innerText = '';
     const carritoSinDuplicados = [...new Set(carrito)];
     carritoSinDuplicados.forEach((item) => {
-        const miItem = listaProductos.filter((productoBaseDatos) => {
+        const miItem = dataProductos.filter((productoBaseDatos) => {
             return productoBaseDatos.id === parseInt(item);
         });
-
         const numeroUnidades = carrito.reduce((total, itemId) => {
             return itemId === item ? total += 1 : total;
         }, 0);
@@ -153,8 +164,8 @@ function renderizarCarrito() {
         const cartDescription = document.createElement("div");
         cartDescription.classList.add("cart-description");
         cartDescription.innerHTML = `<h3>${miItem[0].nombre}</h3>
-                                                    <span class="quantity">Cantidad: ${numeroUnidades}</span>
-                                                    <p>S/.${miItem[0].precio}</p>`
+                                                        <span class="quantity">Cantidad: ${numeroUnidades}</span>
+                                                        <p>S/.${miItem[0].precio}</p>`
 
         const cartButton = document.createElement("div");
         const botonEliminar = document.createElement("button");
@@ -169,6 +180,7 @@ function renderizarCarrito() {
         DOMCarrito.appendChild(cartOrder)
     });
     DOMTotal.innerText = calcularTotal();
+
 }
 
 
@@ -184,7 +196,7 @@ function borrarProductoCarrito(e) {
 
 function calcularTotal() {
     return carrito.reduce((total, item) => {
-        const miItem = listaProductos.filter((itemBaseDatos) => {
+        const miItem = dataProductos.filter((itemBaseDatos) => {
             return itemBaseDatos.id === parseInt(item);
         });
         return total + miItem[0].precio;
@@ -198,14 +210,78 @@ function guardarCarritoEnLocalStorage() {
 
 // --------------------------------------------
 // Agregando producto a lista de deseos
+function anadirProductoLista(e) {
+    // Swal.fire({
+    //     title: '¡Producto añadido!',
+    //     icon: 'success',
+    //     confirmButtonText: 'Cerrar',
+    //     background: '#854747',
+    //     color: 'white',
+    // })
+    // let productoList = e.target.getAttribute('listId')
+    // let anadirLista = listaProductos.find(producto => producto.nombre === productoList);
+    listaDeseos.push(e.target.getAttribute('listId'));
+    renderizarLista();
+    // console.log(renderizarLista())
+    // listaDeseos.push(e.target.getAttribute('listId'))
+    // renderizarLista();
+    guardarListaEnLocalStorage();
 
+}
+// console.log(anadirProductoAlCarrito())
+function renderizarLista() {
+    // CONTAINERList.innerText= '';
+    const listaSinDuplicados = [...new Set(listaDeseos)];
+    listaSinDuplicados.forEach((producto) => {
+        const miItem = dataProductos.filter((productoBaseDatos) => {
+            return productoBaseDatos.id === parseInt(producto);
+        });
+        console.log(miItem)
+        const cardList = document.createElement("div");
+        cardList.classList.add('box-product');
+        cardList.innerHTML = `
+            <img src=${miItem[0].imagen} alt="" />`;
+
+        // const botonEliminarList = document.createElement("button");
+        // botonEliminarList.innerText = 'X';
+        // // botonEliminarList.dataset.producto = producto;
+        // // botonEliminarList.addEventListener("click", borrarProductoCarrito);
+
+        const detailList = document.createElement("div");
+        detailList.classList.add('details');
+
+        const title = document.createElement("h3");
+        title.innerText = miItem[0].nombre;
+
+        const precio = document.createElement("span")
+        precio.innerText = `S/.${miItem[0].precio}`;
+
+        const miBoton = document.createElement("button");
+        miBoton.classList.add("button-store");
+        miBoton.innerText = `Agregar a Carrito`;
+        // // miBoton.setAttribute("marcador", producto.id);
+        // // miBoton.addEventListener("click", anadirProductoAlCarrito);
+
+        // cardList.append(botonEliminarList);
+        cardList.append(detailList);
+        detailList.append(title);
+        detailList.append(precio);
+        detailList.append(miBoton);
+        // CONTAINERList.append(cardList);
+
+    })
+}
+
+const guardarListaEnLocalStorage = () => {
+    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+}
 
 
 // ---------------------------------------------
 // Busqueda de Productos
 
 let productoBuscar = document.getElementById('nombre-producto');
-productoBuscar.addEventListener("input", inputProducto);
+productoBuscar.addEventListener("change", inputProducto);
 
 function inputProducto(e) {
     productoBuscar.value = e.target.value;
@@ -218,10 +294,19 @@ botonBuscar.addEventListener("click", buscarProducto);
 function buscarProducto(e) {
     e.preventDefault();
     let productosEncontrados = [];
-    let busquedaProducto = listaProductos.find(producto => producto.nombre === productoBuscar.value);
-   
-    productosEncontrados.push(busquedaProducto);
-    renderizarProductos(productosEncontrados);
+    let busquedaProducto = dataProductos.find(producto => producto.nombre === productoBuscar.value);
+    if (busquedaProducto) {
+        productosEncontrados.push(busquedaProducto);
+        renderizarProductos(productosEncontrados);
+    } else {
+        Swal.fire({
+            title: 'Producto no encontrado',
+            icon: 'warning',
+            confirmButtonText: 'Cerrar',
+            background: '#854747',
+            color: 'white',
+        })
+    }
 }
 
 
@@ -250,9 +335,16 @@ categorias.forEach((categoria) => {
 function filtrarCategoria(e) {
     e.preventDefault();
     let option = e.target.id;
-    let filtroCategoria = listaProductos.filter(producto => producto.categoria === option);
+    let filtroCategoria = dataProductos.filter(producto => producto.categoria === option);
     renderizarProductos(filtroCategoria);
 }
+
+
+const resetoFiltros = document.getElementById("Reseteo");
+
+resetoFiltros.addEventListener("click", () => {
+    renderizarProductos(dataProductos);
+})
 
 
 

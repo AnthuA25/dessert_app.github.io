@@ -5,14 +5,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle-Compra</title>
+    <link rel="stylesheet" href="./CSS/detalleCompra.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  />
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+          <a href="">
+            <!-- <button id="ham" type="button"><i class="fas fa-bars"></i></button> -->
+          </a>
+          <ul class="link-menu">
+            <li><a active href="home.html">Inicio</a></li>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="">Contactanos</a></li>
+          </ul>
+        </nav>
+        <div class="icons">
+          <a href="listaDeseos.html"><i class="fa-solid fa-heart"></i></a>
+          <a href="#"><i id='cart-shopping-icons' class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </header>
+    <div class="title-container">
+        <h1 class="title">Pedido</h1>
+        <div class="line">
+          <i class="fa-solid fa-diamond"></i>
+          <hr class="line-pink" />
+          <i class="fa-solid fa-gem"></i>
+          <hr class="line-pink" />
+          <i class="fa-solid fa-diamond"></i>
+        </div>
+      </div>
     <div>
+        <h2>Detalle de Facturación</h2>
         <form action="">
             <div>
-                <label for=""></label>
+                <label for="">Nombre y Apellido:*</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">D.N.I:*:</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Correo Electrónico:*</label>
+                <input type="email" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Celular:*</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Pais:*</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Dirección:*</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Referencia:*</label>
+                <input type="text" name="" id=""/>
+            </div>
+            <div>
+                <label for="">Nota del pedido:*</label>
+                <textarea></textarea>
+            </div>
+            <div>
+                <input type="checkbox"/>
+                <label for="">Acepto los terminos y Condiciones</label>
             </div>
         </form>
+        <div>
+            <h2>Pedido</h2>
+            <table>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>1- Brownies</td>
+                    <td>60</td>
+                    <td>S/500</td>
+                </tr>
+                <tr>
+                    <td>2- Pie de Limon</td>
+                    <td>50</td>
+                    <td>S/400</td>
+                </tr>
+            </table>
+            <div>
+                <h2>Método de Pago</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>

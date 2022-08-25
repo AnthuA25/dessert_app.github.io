@@ -697,6 +697,9 @@ input[type="range"]::-webkit-slider-thumb{
   animation: muestraCarrito 350ms ease-in-out both;
   /* position: absolute; */
 }
+.noactivado{
+  display: none;
+}
 
 @keyframes muestraCarrito {
   from {
