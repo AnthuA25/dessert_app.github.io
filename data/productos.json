@@ -13,7 +13,7 @@
         "nombre": "Selva Negra",
         "precio": 38,
         "stock": 400,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/selvaNegra.jpg",
         "categoria": "Kekes",
         "cantidad" : 0
     },
@@ -22,7 +22,7 @@
         "nombre": "Cupcakes",
         "precio": 38,
         "stock": 100,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/cupcakesvainilla.jpg",
         "categoria": "Bocaditos",
         "cantidad" : 0
     },
@@ -31,7 +31,7 @@
         "nombre": "Alfajores",
         "precio": 25,
         "stock": 500,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/alfajores.jpg",
         "categoria": "Bocaditos",
         "cantidad" : 0
     },
@@ -40,7 +40,7 @@
         "nombre": "Pie de Manzana",
         "precio": 36,
         "stock": 400,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/piemanzana.jpg",
         "categoria": "Tarta",
         "cantidad" : 0
     },
@@ -49,7 +49,7 @@
         "nombre": "Brownies",
         "precio": 27,
         "stock": 400,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/brownies.jpg",
         "categoria": "Bocaditos",
         "cantidad" : 0
     },
@@ -58,7 +58,7 @@
         "nombre": "Torta la Sirenita",
         "precio": 120,
         "stock": 30,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/tortasirena.jpg",
         "categoria": "Tortas-Decorativas",
         "cantidad" : 0
     },
@@ -67,16 +67,16 @@
         "nombre": "Torta de Mickey Mouse",
         "precio": 137,
         "stock": 30,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/tortamickeymouse.jpg",
         "categoria": "Tortas-Decorativas",
         "cantidad" : 0
     },
     {
         "id": 9,
-        "nombre": "Pie de Manzana",
+        "nombre": "Pie de Chocolate",
         "precio": 45,
         "stock": 700,
-        "imagen": "../images/biscocho.jpg",
+        "imagen": "../images/piechocolate.png",
         "categoria": "Tarta",
         "cantidad" : 0
     }

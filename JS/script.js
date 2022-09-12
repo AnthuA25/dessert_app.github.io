@@ -2,6 +2,8 @@
 
 
 // ------------------------------------------
+
+
 // Estructura Objetos
 function Producto(id, nombre, precio, stock, imagen, categoria, cantidad) {
     this.id = id;
@@ -256,24 +258,24 @@ function buscarProducto(e) {
 // ---------------------------------------------
 // Filtrado por Precio
 
-// const filtros = Array.from(document.querySelectorAll('input[name="filter_price"]'));
-// console.log("DD",filtros)
-// filtros.forEach((filtro) => {
-//     filtro.addEventListener("click", filtrarPorPrecio)
-// });
+const filtros = document.querySelectorAll('input[name="filter_price"]');
+console.log("DD",filtros)
+filtros.forEach((filtro) => {
+    filtro.addEventListener("click", filtrarPorPrecio)
+});
 
-// function filtrarPorPrecio(e) {
-//     e.preventDefault();
-//     let option = e.target.value;
-//     console.log(option)
-//     let filtroPrecio = option === "ascendente" ? 
-//     listaPost.sort((a,b) => {
-//         return a.precio - b.precio;
-//     }) : listaPost.sort((a,b) => {
-//         return  b.precio - a.precio;
-//     })
-//     renderizarProductos(filtroPrecio);
-// }
+function filtrarPorPrecio(e) {
+    e.preventDefault();
+    let option = e.target.value;
+    console.log(option)
+    let filtroPrecio = option === "ascendente" ? 
+    listaPost.sort((a,b) => {
+        return a.precio - b.precio;
+    }) : listaPost.sort((a,b) => {
+        return  b.precio - a.precio;
+    })
+    renderizarProductos(filtroPrecio);
+}
 
 
 
