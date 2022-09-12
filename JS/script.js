@@ -1,43 +1,5 @@
 
 
-// const ham = document.getElementById('.ham');
-// const enlaces = document.querySelector('.link-menu');
-
-
-// ham.addEventListener('click', () => {
-//     enlaces.classList.toggle('activado');
-// })
-// document.addEventListener("DOMContentLoaded", () => {
-const cart = document.getElementById('cart-shopping-icons');
-const order = document.querySelector('.shopping-cart');
-const btnPedido = document.getElementById('procesar-pedido');
-// const detalleCompra = document.getElementById('detalle-pedido');
-const textLinkComprar = btnPedido.href;
-
-cart.addEventListener('click', () => {
-    order.classList.toggle('activado')
-})
-// btnPedido.addEventListener("click", () =>{
-//     detalleCompra.classList.toggle('activado')
-// })
-const getTotal = () => {
-    let total = 0;
-    let resultado = "";
-    console.log("CARRITO", carritoCompleto)
-    carritoCompleto.forEach((item) => {
-
-        total += item[0].precio * 1;
-    });
-    carritoCompleto
-        .map(
-            (item, index) =>
-                resultado +=
-                `(${index + 1}) Nombre: ${item[0].nombre}, cantidad : ${item[0].cantidad
-                }, con un precio de S/ ${item[0].precio}.`
-        )
-    let final = ` Con un total de S/ ${total}`;
-    return resultado + final;
-}
 
 // ------------------------------------------
 // Estructura Objetos
@@ -57,38 +19,50 @@ function Producto(id, nombre, precio, stock, imagen, categoria, cantidad) {
 // Variables
 
 let listaPost = [];
-// let dataProductos = "";
 let listaDeseos = [];
 let carrito = [];
 let carritoCompleto = [];
-console.log(carritoCompleto)
-const paginacion = document.getElementById("pagination");
 const CONTAINERCard = document.getElementById('store');
 const DOMCarrito = document.querySelector(".shopping");
 const DOMTotal = document.querySelector("#total");
 const procesarPedidoBtn = document.getElementById('procesar-pedido');
+const cart = document.getElementById('cart-shopping-icons');
+const order = document.querySelector('.shopping-cart');
+const btnPedido = document.getElementById('procesar-pedido');
 
+cart.addEventListener('click', () => {
+    order.classList.toggle('activado')
+})
+
+const getTotal = () => {
+    let total = 0;
+    let resultado = "";
+    console.log("CARRITO", carritoCompleto)
+    carritoCompleto.forEach((item) => {
+
+        total += item[0].precio * 1;
+    });
+    carritoCompleto
+        .map(
+            (item, index) =>
+                resultado +=
+                `(${index + 1}) Nombre: ${item[0].nombre}, cantidad : ${item[0].cantidad
+                }, con un precio de S/ ${item[0].precio}.`
+        )
+    let final = ` Con un total de S/ ${total}`;
+    return resultado + final;
+}
 
 fetch("../data/productos.json")
     .then((response) => response.json())
     .then((data) => {
-        // dataProductos = data
-        // console.log(dataProductos)
         for (const producto of data) {
-
-            // console.log("data",producto)
-            listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria))
-
-            // console.log(listaPost)
+            listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
         }
-        // dataProductos = data;
-        // return renderizarProductos(dataProductos);
         renderizarProductos(listaPost)
     })
 
 procesarPedidoBtn.addEventListener("click", procesarPedido)
-// document.addEventListener('DOMContentLoaded', leerLocalStorageCompra())
-//
 
 
 // ------------------------------------------------
@@ -105,8 +79,6 @@ function renderizarProductos(products) {
             const listHeart = document.createElement("button");
             listHeart.classList.add("fas");
             listHeart.classList.add("fa-heart");
-            listHeart.setAttribute("listId", producto.id)
-            listHeart.addEventListener("click", anadirProductoLista);
 
 
             const detail = document.createElement("div");
@@ -218,8 +190,6 @@ function calcularTotal() {
 }
 
 function guardarCarritoEnLocalStorage() {
-    // carrito= obtenerCarritoEnLocalStorage();
-    // carrito.push(producto)
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
@@ -235,7 +205,6 @@ function obtenerCarritoEnLocalStorage() {
 
 function procesarPedido(e) {
     e.preventDefault();
-    // getTotal();
     if (obtenerCarritoEnLocalStorage().length === 0) {
         Swal.fire({
             title: '¡El carrito esta vacío!',
@@ -248,91 +217,6 @@ function procesarPedido(e) {
         location.href = `https://api.whatsapp.com/send?phone=998419770&text=Buen día. He revisado su página dessetApp: ${getTotal()}`;
     }
 }
-
-
-
-
-// --------------------------------------------
-// Agregando producto a lista de deseos
-function anadirProductoLista(e) {
-    // Swal.fire({
-    //     title: '¡Producto añadido!',
-    //     icon: 'success',
-    //     confirmButtonText: 'Cerrar',
-    //     background: '#854747',
-    //     color: 'white',
-    // })
-    // let productoList = e.target.getAttribute('listId')
-    // let anadirLista = listaProductos.find(producto => producto.nombre === productoList);
-    listaDeseos.push(e.target.getAttribute('listId'));
-    renderizarLista();
-    guardarListaEnLocalStorage();
-    // console.log(getListaDeseos())
-
-}
-
-
-
-function getListaDeseos() {
-    let storeList = localStorage.getItem('listaDeseos');
-    if (storeList === null) {
-        listaDeseos = [];
-    } else {
-        listaDeseos = JSON.parse(storeList)
-    }
-    return listaDeseos;
-}
-
-
-// console.log(anadirProductoAlCarrito())
-function renderizarLista() {
-    const listaSinDuplicados = [...new Set(listaDeseos)];
-    listaSinDuplicados.forEach((producto) => {
-        const miItem = listaPost.filter((productoBaseDatos) => {
-            return productoBaseDatos.id === parseInt(producto);
-        });
-        const cardList = document.createElement("div");
-        cardList.classList.add('box-product');
-        cardList.innerHTML = `
-        <img src=${miItem[0].imagen} alt="" />`;
-        // const botonEliminarList = document.createElement("button");
-        // botonEliminarList.innerText = 'X';
-        // // botonEliminarList.dataset.producto = producto;
-        // // botonEliminarList.addEventListener("click", borrarProductoCarrito);
-
-        const detailList = document.createElement("div");
-        detailList.classList.add('details');
-
-        const title = document.createElement("h3");
-        title.innerText = miItem[0].nombre;
-
-        const precio = document.createElement("span")
-        precio.innerText = `S/.${miItem[0].precio}`;
-
-        const miBoton = document.createElement("button");
-        miBoton.classList.add("button-store");
-        miBoton.innerText = `Agregar a Carrito`;
-        // // miBoton.setAttribute("marcador", producto.id);
-        // // miBoton.addEventListener("click", anadirProductoAlCarrito);
-
-        // cardList.append(botonEliminarList);
-
-        // CONTAINERList.innerHTML = lista;
-        cardList.append(detailList);
-        detailList.append(title);
-        detailList.append(precio);
-        detailList.append(miBoton);
-        CONTAINERList.appendChild(cardList);
-    })
-
-}
-
-const guardarListaEnLocalStorage = () => {
-    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-}
-
-
-
 
 
 // ---------------------------------------------
@@ -356,7 +240,7 @@ function buscarProducto(e) {
     if (busquedaProducto) {
         productosEncontrados.push(busquedaProducto);
         renderizarProductos(productosEncontrados);
-        productoBuscar =""
+        productoBuscar.value = ""
     } else {
         Swal.fire({
             title: 'Producto no encontrado',
