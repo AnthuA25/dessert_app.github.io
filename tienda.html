@@ -53,11 +53,10 @@
           <h id="total">0.00</h3>
         </div>
         <div class="button-cart">
-          <button class="buy-order"><a href="detalleCompra.html">Comprar</a></button>
+          <button class="buy-order"><a href="#" target="_blank" id="procesar-pedido">Comprar</a></button>
         </div>
       </div>
     </div>
-
 
     <!-- Tienda -->
     <div class="store">
@@ -75,19 +74,16 @@
         </div>
         <div class="filter-price">
           <h2>Filtrar por precio</h2>
-          <div class="wrapper">
-            <div class="multi-range-slider">
-              <input type="range" min="30" max="300" value="100" id="input-left" />
-              <input type="range" min="30" max="300" value="250" id="input-right"
-              />
-              <div class="slider">
-                <div class="track"></div>
-                <div class="range"></div>
-              </div>
+          <div class="filters" id="filters">
+            <div>
+
+              <input type="radio" name="filter_price" value="descendiente" id="descendiente"/>
+              <label for="descendiente">DESC</label>
             </div>
-            <div class="price_wrapper">
-              <span class="price-from"></span>
-              <span class="price-to"></span>
+            <div>
+
+              <input type="radio" name="filter_price" value="ascendente" id="ascendente"/>
+              <label for="ascendente">ASC</label>
             </div>
           </div>
         </div>
@@ -100,7 +96,7 @@
             <li id="Kekes">Kekes</li>
           </ul>
         </div>
-        <div>
+        <div class="reseteoFiltrado">
           <button id="Reseteo">Reseteo de Filtros</button>
         </div>
       </section>
@@ -108,15 +104,6 @@
       <!-- catalogo de productos -->
       <section class="catalogo">
         <div id="store" class="container-product"></div>
-
-        <!--paginado de productos-->
-        <div class="page-number">
-          <div class="number">1</div>
-          <div class="number">2</div>
-          <div class="number">3</div>
-          <div class="number">...</div>
-          <div class="number">8</div>
-        </div>
       </section>
     </div>
     <!--pie de pagina  -->
@@ -150,6 +137,9 @@
       </div>
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./JS/script.js"></script>
+    <script src="./JS/carrito.js"></script>
+    <script src="./JS/listaDeseos.js"></script>
   </body>
 </html>

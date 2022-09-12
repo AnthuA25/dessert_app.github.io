@@ -5,7 +5,8 @@
         "precio": 45,
         "stock": 300,
         "imagen": "./images/biscocho.jpg",
-        "categoria": "Tarta"
+        "categoria": "Tarta",
+        "cantidad" : 0
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "precio": 38,
         "stock": 400,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Kekes"
+        "categoria": "Kekes",
+        "cantidad" : 0
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "precio": 38,
         "stock": 100,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Bocaditos"
+        "categoria": "Bocaditos",
+        "cantidad" : 0
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "precio": 25,
         "stock": 500,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Bocaditos"
+        "categoria": "Bocaditos",
+        "cantidad" : 0
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "precio": 36,
         "stock": 400,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Tarta"
+        "categoria": "Tarta",
+        "cantidad" : 0
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "precio": 27,
         "stock": 400,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Bocaditos"
+        "categoria": "Bocaditos",
+        "cantidad" : 0
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "precio": 120,
         "stock": 30,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Tortas-Decorativas"
+        "categoria": "Tortas-Decorativas",
+        "cantidad" : 0
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "precio": 137,
         "stock": 30,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Tortas-Decorativas"
+        "categoria": "Tortas-Decorativas",
+        "cantidad" : 0
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "precio": 45,
         "stock": 700,
         "imagen": "../images/biscocho.jpg",
-        "categoria": "Tarta"
+        "categoria": "Tarta",
+        "cantidad" : 0
     }
     
 ]
