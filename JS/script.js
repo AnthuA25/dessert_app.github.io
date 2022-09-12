@@ -32,9 +32,19 @@ const cart = document.getElementById('cart-shopping-icons');
 const order = document.querySelector('.shopping-cart');
 const btnPedido = document.getElementById('procesar-pedido');
 
+procesarPedidoBtn.addEventListener("click", procesarPedido)
 cart.addEventListener('click', () => {
     order.classList.toggle('activado')
 })
+
+fetch("../data/productos.json")
+    .then((response) => response.json())
+    .then((data) => {
+        for (const producto of data) {
+            listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
+        }
+        renderizarProductos(listaPost)
+    })
 
 const getTotal = () => {
     let total = 0;
@@ -55,16 +65,7 @@ const getTotal = () => {
     return resultado + final;
 }
 
-fetch("../data/productos.json")
-    .then((response) => response.json())
-    .then((data) => {
-        for (const producto of data) {
-            listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
-        }
-        renderizarProductos(listaPost)
-    })
 
-procesarPedidoBtn.addEventListener("click", procesarPedido)
 
 
 // ------------------------------------------------
@@ -258,22 +259,20 @@ function buscarProducto(e) {
 // ---------------------------------------------
 // Filtrado por Precio
 
-const filtros = document.querySelectorAll('input[name="filter_price"]');
-console.log("DD",filtros)
+const filtros = Array.from(document.getElementById('btn-price').children);
 filtros.forEach((filtro) => {
     filtro.addEventListener("click", filtrarPorPrecio)
 });
 
 function filtrarPorPrecio(e) {
     e.preventDefault();
-    let option = e.target.value;
-    console.log(option)
+    let option = e.target.id;
     let filtroPrecio = option === "ascendente" ? 
     listaPost.sort((a,b) => {
         return a.precio - b.precio;
     }) : listaPost.sort((a,b) => {
         return  b.precio - a.precio;
-    })
+    });
     renderizarProductos(filtroPrecio);
 }
 
@@ -305,12 +304,3 @@ resetoFiltros.addEventListener("click", () => {
 })
 
 
-
-
-
-
-
-
-
-
-// })    
