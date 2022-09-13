@@ -39,18 +39,11 @@ cart.addEventListener('click', () => {
 fetch("../data/productos.json")
     .then((response) => response.json())
     .then((data) => {
-        if (data.length > 0) {
-            console.log(data.length)
-            for (const producto of data) {
-                listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
-            }
-            renderizarProductos(listaPost)
-        } else {
-            const cargar = document.createElement("img");
-            cargar.classList.add('loading');
-            cargar.setAttribute("src", "../images/loading.gif");
-            CONTAINERCard.appendChild(cargar)
+        console.log(data.length)
+        for (const producto of data) {
+            listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
         }
+        renderizarProductos(listaPost)
     })
 
 const getTotal = () => {
