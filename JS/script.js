@@ -53,13 +53,6 @@ fetch("../data/productos.json")
         }
     })
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     if (localStorage.getItem("carrito")) {
-//         carrito = JSON.parse(localStorage.getItem("carrito"));
-//         guardarCarritoEnLocalStorage();
-//     }
-// });
-
 const getTotal = () => {
     let total = 0;
     let resultado = "";
