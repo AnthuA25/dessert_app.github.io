@@ -39,7 +39,6 @@ cart.addEventListener('click', () => {
 fetch("../data/productos.json")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data.length)
         for (const producto of data) {
             listaPost.push(new Producto(producto.id, producto.nombre, producto.precio, producto.stock, producto.imagen, producto.categoria));
         }
