@@ -450,6 +450,14 @@ button {
   opacity: 1;
   visibility: visible;
 }
+
+.loading{
+  color: white;
+  position: relative;
+  top:250px;
+  width: 150px;
+}
+
 .container-product .box-product img {
   width: 300px;
   height: 350px;

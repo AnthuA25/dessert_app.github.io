@@ -5,8 +5,7 @@
         "precio": 45,
         "stock": 300,
         "imagen": "./images/biscocho.jpg",
-        "categoria": "Tarta",
-        "cantidad" : 0
+        "categoria": "Tarta"
     },
     {
         "id": 2,
@@ -14,8 +13,7 @@
         "precio": 38,
         "stock": 400,
         "imagen": "../images/selvaNegra.jpg",
-        "categoria": "Kekes",
-        "cantidad" : 0
+        "categoria": "Kekes"
     },
     {
         "id": 3,
@@ -23,8 +21,7 @@
         "precio": 38,
         "stock": 100,
         "imagen": "../images/cupcakesvainilla.jpg",
-        "categoria": "Bocaditos",
-        "cantidad" : 0
+        "categoria": "Bocaditos"
     },
     {
         "id": 4,
@@ -32,17 +29,14 @@
         "precio": 25,
         "stock": 500,
         "imagen": "../images/alfajores.jpg",
-        "categoria": "Bocaditos",
-        "cantidad" : 0
+        "categoria": "Bocaditos"
     },
     {
         "id": 5,
         "nombre": "Pie de Manzana",
         "precio": 36,
         "stock": 400,
-        "imagen": "../images/piemanzana.jpg",
-        "categoria": "Tarta",
-        "cantidad" : 0
+        "imagen": "../images/piemanzana.jpg"
     },
     {
         "id": 6,
@@ -50,8 +44,7 @@
         "precio": 27,
         "stock": 400,
         "imagen": "../images/brownies.jpg",
-        "categoria": "Bocaditos",
-        "cantidad" : 0
+        "categoria": "Bocaditos"
     },
     {
         "id": 7,
@@ -59,8 +52,7 @@
         "precio": 120,
         "stock": 30,
         "imagen": "../images/tortasirena.jpg",
-        "categoria": "Tortas-Decorativas",
-        "cantidad" : 0
+        "categoria": "Tortas-Decorativas"
     },
     {
         "id": 8,
@@ -68,8 +60,7 @@
         "precio": 137,
         "stock": 30,
         "imagen": "../images/tortamickeymouse.jpg",
-        "categoria": "Tortas-Decorativas",
-        "cantidad" : 0
+        "categoria": "Tortas-Decorativas"
     },
     {
         "id": 9,
@@ -77,8 +68,7 @@
         "precio": 45,
         "stock": 700,
         "imagen": "../images/piechocolate.png",
-        "categoria": "Tarta",
-        "cantidad" : 0
+        "categoria": "Tarta"
     }
     
 ]
